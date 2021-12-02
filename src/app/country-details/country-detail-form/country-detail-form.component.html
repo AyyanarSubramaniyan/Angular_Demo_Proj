@@ -1,0 +1,46 @@
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="text-left">Add New Country</h4>
+      <hr />
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="text-dark">Country Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Country Name"
+              name="name" autocomplete="off"
+              [(ngModel)]="countryDetail.name"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="text-dark"> Status </label>
+          <div class="form-group pt-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="isActive"
+              [(ngModel)]="countryDetail.isActive"
+              [value]="countryDetail.isActive"
+            />
+            <label class="text-dark"> &nbsp; Is Active </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group pt-4">
+            <button
+              class="btn btn-success"
+              type="submit"
+              (click)="addNew(countryDetail)"
+            >
+              Add Country
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

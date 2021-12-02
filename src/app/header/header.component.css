@@ -1,0 +1,22 @@
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.active {
+  color: #e41212 !important;
+
+}
+
+.btn:focus,
+.btn.focus {
+  box-shadow: 0 0 0 0.2rem rgb(255 255 255 / 25%) !important;
+}
+
+
+a:hover {
+  color: #e41212 !important;
+  border-radius: 0.25rem
+}

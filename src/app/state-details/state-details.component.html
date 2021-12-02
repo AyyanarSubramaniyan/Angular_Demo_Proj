@@ -1,0 +1,120 @@
+<div class="row">
+  <app-state-detail-form></app-state-detail-form>
+</div>
+<div class="content">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="text-left">State Details</h4>
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>State Name</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pd of service.list">
+            <td>{{ pd.stateName }}</td>
+            <td>
+              <div *ngIf="pd.isActive; else elseBlock">
+                <span class="btn btn-sm btn-outline-success"> Active </span>
+              </div>
+              <ng-template #elseBlock>
+                <span class="btn btn-sm btn-outline-danger"> InActive </span>
+              </ng-template>
+            </td>
+
+            <td>
+              <i
+                class="btn btn-sm btn-outline-primary fa fa-pencil"
+                (click)="openModal(templateNested, pd)"
+              ></i>
+              &nbsp;
+              <i
+                class="btn btn-sm btn-outline-danger fa fa-trash"
+                (click)="onDelete(pd.id)"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #templateNested>
+  <div class="modal-header" style="border-bottom: 0px !important">
+    <h4 class="modal-title pull-left">Edit State</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span class="fa fa-times-circle" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row mt-2">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="text-dark">State Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="State Name"
+              name="stateName"
+              [(ngModel)]="editState.stateName"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="text-dark">Country Name</label>
+            <select
+              name="countryId"
+              [(ngModel)]="editState.countryId"
+              class="form-control"
+            >
+              <option>Choose Country</option>
+              <option *ngFor="let c of countryservice.list" [ngValue]="c.id">
+                {{ c.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="text-dark"> Status </label>
+          <div class="form-group pt-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="isActive"
+              [(ngModel)]="editState.isActive"
+              [value]="editState.isActive"
+            />
+            <label class="text-dark"> &nbsp; Is Active </label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group pt-4">
+            <button
+              class="btn btn-success"
+              (click)="updateState(editState, editState.id)"
+              type="submit"
+            >
+              Update State
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-info" (click)="modalRef.hide()">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Close
+    </button>
+  </div>
+</ng-template>
