@@ -3,4 +3,5 @@ export class StateDetail {
     countryId:number=0;
     stateName:string='';
     isActive:boolean=false;
+    countryName:string='';
 }

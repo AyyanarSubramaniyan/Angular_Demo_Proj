@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class StateDetailService {
 
-  readonly baseURL = 'https://localhost:44384/api/StateDetails'
+  readonly baseURL = 'https://localhost:44384/api/State'
   list: StateDetail[]; 
 
   constructor(private http: HttpClient) { }

@@ -7,7 +7,7 @@ import { CountryDetail } from './country-detail.model';
 })
 export class CountryDetailService {
   list: CountryDetail[];
-  readonly baseURL = 'https://localhost:44384/api/CountryDetails'
+  readonly baseURL = 'https://localhost:44384/api/Country'
 
   constructor(private http: HttpClient) { }
 

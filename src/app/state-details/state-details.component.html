@@ -8,6 +8,7 @@
       <table class="table table-bordered text-center">
         <thead>
           <tr>
+            <th>Country Name</th>
             <th>State Name</th>
             <th>Status</th>
             <th>Action</th>
@@ -15,6 +16,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let pd of service.list">
+            <td>{{pd.countryName}}</td>
             <td>{{ pd.stateName }}</td>
             <td>
               <div *ngIf="pd.isActive; else elseBlock">
